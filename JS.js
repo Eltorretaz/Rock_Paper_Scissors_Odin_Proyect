@@ -1,43 +1,48 @@
 function getComputerChoice() {
-    const computerNumberRandom = Math.ceil(Math.random()*3);
-
-    if(computerNumberRandom === 1){
-        selection = 'Rock';
-    }
-    else if(computerNumberRandom === 2) {
-        selection = 'Paper';
-    }
-    else if(computerNumberRandom === 3){
-        selection = 'Scissors';
-    }
-        console.log(selection);
-        return computerNumberRandom;
+    const computerNumberRandom = ['rock', 'paper', 'scissors'];
+    const random = Math.ceil(Math.random() * computerNumberRandom.length);
+        return computerNumberRandom[random];
+        
 }
 
-function playRound(playerSelection, computerSelection) {
-    if(playerSelection === computerSelection){
-        return ('dame tu cosita a a');
-    }else if(playerSelection === 1 && computerSelection === 3){
-        return ('ganaste mi parce');
-    }else if(playerSelection === 2 && computerSelection === 1){
-        return ('ganaste mi parce');
-    }else if(playerSelection === 3 && computerSelection === 2){
-        return ('ganaste mi parce');
-    }else if(playerSelection === 1 && computerSelection === 2){
-        return ('perdiste mi parce')
-    }else if(playerSelection === 2 && computerSelection === 3){
-        return ('perdiste mi parce')
-    }else if(playerSelection === 3 && computerSelection === 1){
-        return ('perdiste mi parce')
+function game() {
+    const playerSelection = prompt("Write your election");
+    const computerSelection = getComputerChoice();
+    let playerPoints = 0;
+    let computerPoints = 0;
+
+
+    function playRound(playerSelection, computerSelection) {
+        if(playerSelection === computerSelection){
+            console.log(`tie! ${playerSelection} is equal than ${computerSelection}`);
+        }
+        else if((playerSelection === 'rock' && computerSelection === 'scissors') 
+        ||
+        (playerSelection === 'paper' && computerSelection === 'paper') 
+        ||
+        (playerSelection === 'scissors' && computerSelection === 'rock')){
+            playerPoints++;
+            console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+        }
+        else{
+            computerPoints++;
+            console.log(`You lose! ${playerSelection} beats ${computerSelection}`);
+        }
+    }
+
+    playRound(playerSelection.toLocaleLowerCase(), computerSelection);
+}
+
+function gameLoop() {
+    for(let i = 0; i < 10; i++){
+        if(playerPoints > 4){
+            return (`Congratulations, you win haved ${playerPoints} and computer haved ${computerPoints}`);
+        }
+        if(computerPoints > 4){
+            return (`Game over, you lose, haved ${playerPoints} and computer haved ${computerPoints}`);
+        }
+        game();
     }
 }
-function player(numero) {
-    return (numero);
-};
 
-const select = document.getElementById('select');
-
-const playerSelection = player(select);
-console.log(playerSelection);
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+gameLoop();
