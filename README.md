@@ -4,7 +4,7 @@
 
 > One paragraph statement about the project.
 
-![screenshot](./app_screenshot.png)
+![screenshot](./app_screenshot.jpg)
 
 Additional description about the project and its features.
 
@@ -16,7 +16,7 @@ Additional description about the project and its features.
 
 ## Live Demo
 
-[Live Demo Link](https://eltorretaz.github.io/Tarea_8sep23_html-css/)
+[Live Demo Link](https://eltorretaz.github.io/Rock_Paper_Scissors_Odin_Proyect/)
 
 
 ## Getting Started
@@ -52,7 +52,7 @@ To get a local copy up and running follow these simple example steps.
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/Eltorretaz/Tarea_8sep23_html-css/issues).
+Feel free to check the [issues page](https://github.com/Eltorretaz/Rock_Paper_Scissors_Odin_Proyect/issues).
 
 ## Show your support
 
