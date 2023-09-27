@@ -4,12 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script defer src="JS.js"></script>
+    <script defer src="prueba3.js"></script>
     <title>Rock, Paper, Scissors</title>
 </head>
 <body>
-    <div class="header">
-        <h1>Rock, Paper, Scissors</h1>
+    <div class="section1">
+        <div class="header">
+            <h1>Rock, Paper, Scissors</h1>
+        </div>
+        <div class="score">
+            <span id="score">player = 0 computer = 0</span>
+        </div>
+        <div class="buttons">
+            <button class="btn" id="btn1">Rock</button>
+            <button class="btn" id="btn2">Paper</button>
+            <button class="btn" id="btn3">Scissors</button>
+        </div>
+    </div>
+    <div class="img">
+        <div id="imgPlayerSelection" class="imgPlayerSelection"></div>
+        <span class="vs">vs</span>
+        <div id="imgComputerSelection" class=""></div>
+    </div>
+    <div class="result">
+        <span class="resultRound" id="resultRound"></span>
+        <span class="resultGame gameOver" id="resultGame"></span>
     </div>
 </body>
 </html>

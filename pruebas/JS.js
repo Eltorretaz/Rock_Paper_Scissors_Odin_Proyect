@@ -1,6 +1,9 @@
+    let playerPoints = 0;
+    let computerPoints = 0;
+
 function getComputerChoice() {
     const computerNumberRandom = ['rock', 'paper', 'scissors'];
-    const random = Math.ceil(Math.random() * computerNumberRandom.length);
+    const random = Math.floor(Math.random() * computerNumberRandom.length);
         return computerNumberRandom[random];
         
 }
@@ -8,9 +11,6 @@ function getComputerChoice() {
 function game() {
     const playerSelection = prompt("Write your election");
     const computerSelection = getComputerChoice();
-    let playerPoints = 0;
-    let computerPoints = 0;
-
 
     function playRound(playerSelection, computerSelection) {
         if(playerSelection === computerSelection){
@@ -35,14 +35,15 @@ function game() {
 
 function gameLoop() {
     for(let i = 0; i < 10; i++){
+        game();
         if(playerPoints > 4){
             return (`Congratulations, you win haved ${playerPoints} and computer haved ${computerPoints}`);
         }
         if(computerPoints > 4){
             return (`Game over, you lose, haved ${playerPoints} and computer haved ${computerPoints}`);
         }
-        game();
+        console.log(`${playerPoints} - ${computerPoints}`);
     }
 }
-
+console.log(gameLoop());
 gameLoop();
