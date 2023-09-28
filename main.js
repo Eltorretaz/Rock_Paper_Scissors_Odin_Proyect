@@ -5,6 +5,7 @@ const imgPlayer = document.getElementById('imgPlayerSelection');
 const imgComputer = document.getElementById('imgComputerSelection');
 const resultRound = document.getElementById('resultRound');
 const resultGame = document.getElementById('resultGame');
+const score = document.getElementById('score');
 
 const selectionRock = document.getElementById('btn1');
 selectionRock.addEventListener('click', () => {
@@ -12,7 +13,6 @@ selectionRock.addEventListener('click', () => {
     imgPlayer.classList.remove('scissors', 'paper');
     imgPlayer.classList.add('rock');
     gameLoop();
-    console.log(imgComputer);
 });
 
 const selectionPaper = document.getElementById('btn2');
@@ -52,40 +52,47 @@ const random = Math.floor(Math.random() * computerNumberRandom.length);
 function game() {
 
 const computerSelection = getComputerChoice();
+playRound(playerSelection, computerSelection);
 
 function playRound(playerSelection, computerSelection) {
     if(playerSelection === computerSelection){
         resultRound.innerHTML = (`tie! ${playerSelection} is equal than ${computerSelection}`);
+        score.innerHTML = `player = ${playerPoints} computer = ${computerPoints}`;
     }
-    else if((playerSelection === 'Rock' && computerSelection === 'Scissors') 
+    if(
+    (playerSelection === 'Rock' && computerSelection === 'Scissors') 
     ||
     (playerSelection === 'Paper' && computerSelection === 'Rock') 
     ||
     (playerSelection === 'Scissors' && computerSelection === 'Paper')){
         playerPoints++;
         resultRound.innerHTML = `You win! ${playerSelection} beats ${computerSelection}`;
+        score.innerHTML = `player = ${playerPoints} computer = ${computerPoints}`;
     }
-    else{
+    if(
+    (computerSelection === 'Rock' && playerSelection === 'Scissors') 
+    ||
+    (computerSelection === 'Paper' && playerSelection === 'Rock') 
+    ||
+    (computerSelection === 'Scissors' && playerSelection === 'Paper')){
         computerPoints++;
         resultRound.innerHTML = `You lose! ${playerSelection} beats ${computerSelection}`;
+        score.innerHTML = `player = ${playerPoints} computer = ${computerPoints}`;
+        }
     }
-}
-playRound(playerSelection, computerSelection);
 }
 
 function gameLoop() {
     if(playerPoints > 4){
         resultGame.classList.add('gameWin')
         resultGame.innerHTML = (`Congratulations, you win haved ${playerPoints} and computer haved ${computerPoints}`);
-        return score;
+        return resultGame;
     }
     if(computerPoints > 4){
         resultGame.classList.add('gameOver')
         resultGame.innerHTML = (`Game over, you lose, haved ${playerPoints} and computer haved ${computerPoints}`);
-        return score;
+        return resultGame;
     }
-    const score = document.getElementById('score');
-    score.innerHTML = `player = ${playerPoints} computer = ${computerPoints}`;
     game();
 }
 
