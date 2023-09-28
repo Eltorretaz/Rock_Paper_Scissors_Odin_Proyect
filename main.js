@@ -58,8 +58,7 @@ function playRound(playerSelection, computerSelection) {
     if(playerSelection === computerSelection){
         resultRound.innerHTML = (`tie! ${playerSelection} is equal than ${computerSelection}`);
         score.innerHTML = `player = ${playerPoints} computer = ${computerPoints}`;
-    }
-    if(
+    }else if(
     (playerSelection === 'Rock' && computerSelection === 'Scissors') 
     ||
     (playerSelection === 'Paper' && computerSelection === 'Rock') 
@@ -68,13 +67,7 @@ function playRound(playerSelection, computerSelection) {
         playerPoints++;
         resultRound.innerHTML = `You win! ${playerSelection} beats ${computerSelection}`;
         score.innerHTML = `player = ${playerPoints} computer = ${computerPoints}`;
-    }
-    if(
-    (computerSelection === 'Rock' && playerSelection === 'Scissors') 
-    ||
-    (computerSelection === 'Paper' && playerSelection === 'Rock') 
-    ||
-    (computerSelection === 'Scissors' && playerSelection === 'Paper')){
+    }else{
         computerPoints++;
         resultRound.innerHTML = `You lose! ${playerSelection} beats ${computerSelection}`;
         score.innerHTML = `player = ${playerPoints} computer = ${computerPoints}`;
