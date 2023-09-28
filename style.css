@@ -11,6 +11,10 @@ body {
     background-size: 5%;
 }
 
+.section1 {
+    height: 100%;
+}
+
 .header {
     height: 70px;
     display: flex;
@@ -50,7 +54,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 350px;
+    height: 25rem;
 }
 
 .img>div {

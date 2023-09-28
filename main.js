@@ -1,7 +1,7 @@
 let playerPoints = 0;
 let computerPoints = 0;
 let playerSelection;
-const imgPlayer = document.querySelector('#imgPlayerSelection');
+const imgPlayer = document.getElementById('imgPlayerSelection');
 const imgComputer = document.getElementById('imgComputerSelection');
 const resultRound = document.getElementById('resultRound');
 const resultGame = document.getElementById('resultGame');
@@ -70,7 +70,6 @@ function playRound(playerSelection, computerSelection) {
         resultRound.innerHTML = `You lose! ${playerSelection} beats ${computerSelection}`;
     }
 }
-
 playRound(playerSelection, computerSelection);
 }
 
